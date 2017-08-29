@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Mighty Tabs</title>
+</head>
+<body>
+  <ul role="tablist">
+    <li role="tab"><button>Tab 1</button></li>
+    <li role="tab"><button>Tab 2</button></li>
+    <li role="tab"><button>Tab 3</button></li>
+  </ul>
+  <section id="tab-1" role="tabpanel">Tab 1 Content</section>
+  <section id="tab-2" role="tabpanel">Tab 2 Content</section>
+  <section id="tab-3" role="tabpanel">Tab 3 Content</section>
+
+  <script src="../dist/mighty-tabs.umd.js"></script>
+  <script>
+    new MightyTabs('.js-tab')
+  </script>
+</body>
+</html>

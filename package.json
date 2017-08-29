@@ -1,0 +1,39 @@
+{
+  "name": "mighty-tabs",
+  "version": "1.0.0-alpha.1",
+  "description": "An accessible tab interface",
+  "main": "dist/mighty-tabs.cjs.js",
+  "module": "dist/mighty-tabs.esm.js",
+  "browser": "dist/mighty-tabs.umd.js",
+  "scripts": {
+    "build": "rollup -c",
+    "dev": "rollup -c -w",
+    "test": "node test/test.js",
+    "copy": "cp ./dist/butane-tabs.umd.js docs/butane-tabs.umd.js",
+    "pretest": "npm run build"
+  },
+  "devDependencies": {
+    "babel": "^6.23.0",
+    "babel-core": "^6.26.0",
+    "babel-plugin-external-helpers": "^6.18.0",
+    "babel-preset-es2015-rollup": "^3.0.0",
+    "babel-preset-stage-0": "^6.16.0",
+    "rollup": "^0.46.0",
+    "rollup-plugin-babel": "^3.0.2",
+    "rollup-plugin-commonjs": "^8.0.2",
+    "rollup-plugin-node-resolve": "^3.0.0"
+  },
+  "dependencies": {
+    "ms": "^2.0.0"
+  },
+  "keywords": [
+    "accessibility",
+    "tabs",
+    "mighty in the midwest"
+  ],
+  "author": "Mighty in the Midwest",
+  "license": "ISC",
+  "files":[
+    "dist"
+  ]
+}
