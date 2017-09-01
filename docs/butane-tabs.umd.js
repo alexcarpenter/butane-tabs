@@ -249,6 +249,15 @@ var ButaneTabs = function () {
   return ButaneTabs;
 }();
 
-return ButaneTabs;
+var init = function init() {
+  var butaneTabs = document.querySelectorAll('[data-butane-tabs]');
+  butaneTabs.forEach(function (tab) {
+    new ButaneTabs(tab);
+  });
+};
+
+var main = { init: init };
+
+return main;
 
 })));

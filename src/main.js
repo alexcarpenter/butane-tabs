@@ -190,4 +190,11 @@ class ButaneTabs {
   }
 }
 
-export default ButaneTabs
+const init = () => {
+  const butaneTabs = document.querySelectorAll('[data-butane-tabs]')
+  butaneTabs.forEach(tab => {
+    new ButaneTabs(tab)
+  })
+}
+
+export default { init }

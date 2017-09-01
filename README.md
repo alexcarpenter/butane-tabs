@@ -20,16 +20,8 @@ import ButaneTabs from 'butane-tabs'
 
 ## Instantiate
 
-```js
-// instantiate single tab interface
-const tab = document.querySelector('[data-butane-tab]')
-new ButaneTabs(tab)
-
-// or instantiate multiple tabs
-const allTabs = document.querySelectorAll('[data-butane-tabs]')
-allTabs.forEach(tab => {
-  new ButaneTabs(tab)
-})
+```es6
+ButaneTabs.init()
 ```
 
 ## Expected DOM structure

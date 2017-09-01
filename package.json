@@ -1,6 +1,6 @@
 {
   "name": "butane-tabs",
-  "version": "1.0.0-alpha.3",
+  "version": "1.0.0-alpha.4",
   "description": "Accessible dialog JS library.",
   "main": "dist/butane-tabs.cjs.js",
   "module": "dist/butane-tabs.esm.js",
@@ -8,7 +8,6 @@
   "scripts": {
     "build": "rollup -c && npm run copy",
     "dev": "rollup -c -w",
-    "test": "node test/test.js",
     "copy": "cp ./dist/butane-tabs.umd.js docs/butane-tabs.umd.js"
   },
   "devDependencies": {

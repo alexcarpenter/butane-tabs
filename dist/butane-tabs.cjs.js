@@ -199,4 +199,13 @@ class ButaneTabs {
   }
 }
 
-module.exports = ButaneTabs;
+const init = () => {
+  const butaneTabs = document.querySelectorAll('[data-butane-tabs]');
+  butaneTabs.forEach(tab => {
+    new ButaneTabs(tab);
+  });
+};
+
+var main = { init };
+
+module.exports = main;
