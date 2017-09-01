@@ -87,6 +87,8 @@ var ButaneTabs = function () {
         tab.addEventListener('click', function () {
           _this.deactivateTabs();
           tab.classList.add('is-active');
+          tab.setAttribute('tabindex', 0);
+          tab.setAttribute('aria-selected', true);
           _this.setActivePanel(tab);
         });
       });

@@ -53,6 +53,8 @@ class ButaneTabs {
       tab.addEventListener('click', () => {
         this.deactivateTabs();
         tab.classList.add('is-active');
+        tab.setAttribute('tabindex', 0);
+        tab.setAttribute('aria-selected', true);
         this.setActivePanel(tab);
       });
     });
