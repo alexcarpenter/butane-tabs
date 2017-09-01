@@ -9,7 +9,7 @@ export default [
     entry: 'src/main.js',
     dest: pkg.browser,
     format: 'umd',
-    moduleName: 'MightyTabs',
+    moduleName: 'ButaneTabs',
     plugins: [
       resolve(), // so Rollup can find `ms`
       commonjs(), // so Rollup can convert `ms` to an ES module

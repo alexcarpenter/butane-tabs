@@ -1,16 +1,15 @@
 {
-  "name": "mighty-tabs",
+  "name": "butane-tabs",
   "version": "1.0.0-alpha.1",
   "description": "An accessible tab interface",
-  "main": "dist/mighty-tabs.cjs.js",
-  "module": "dist/mighty-tabs.esm.js",
-  "browser": "dist/mighty-tabs.umd.js",
+  "main": "dist/butane-tabs.cjs.js",
+  "module": "dist/butane-tabs.esm.js",
+  "browser": "dist/butane-tabs.umd.js",
   "scripts": {
-    "build": "rollup -c",
+    "build": "rollup -c && npm run copy",
     "dev": "rollup -c -w",
     "test": "node test/test.js",
-    "copy": "cp ./dist/butane-tabs.umd.js docs/butane-tabs.umd.js",
-    "pretest": "npm run build"
+    "copy": "cp ./dist/butane-tabs.umd.js docs/butane-tabs.umd.js"
   },
   "devDependencies": {
     "babel": "^6.23.0",
@@ -28,12 +27,11 @@
   },
   "keywords": [
     "accessibility",
-    "tabs",
-    "mighty in the midwest"
+    "tabs"
   ],
-  "author": "Mighty in the Midwest",
-  "license": "ISC",
-  "files":[
+  "author": "Alex Carpenter",
+  "license": "MIT",
+  "files": [
     "dist"
   ]
 }
