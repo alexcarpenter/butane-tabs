@@ -17,6 +17,8 @@ class MightyTabs {
     this.lastTab = this.tabs[this.tabs.length - 1];
     this.activeTab = this.tabList.querySelector('.is-active') || this.firstTab;
 
+    console.log(this.tabs);
+
     if (!this.tabList) {
       throw new Error('No tablist found')
     }
@@ -62,7 +64,7 @@ class MightyTabs {
 
   getPanel (x) {
     const panelId = x.getAttribute('aria-controls');
-    return document.getElementById(panelId)
+    return this.tabContainer.querySelector(`#${panelId}`)
   }
 
   setActivePanel (x) {
