@@ -17,8 +17,6 @@ class ButaneTabs {
     this.lastTab = this.tabs[this.tabs.length - 1];
     this.activeTab = this.tabList.querySelector('.is-active') || this.firstTab;
 
-    console.log(this.tabs);
-
     if (!this.tabList) {
       throw new Error('No tablist found')
     }
@@ -51,6 +49,7 @@ class ButaneTabs {
 
     this.tabPanels.forEach(tabPanel => {
       tabPanel.setAttribute('role', 'tabpanel');
+      tabPanel.setAttribute('aria-labelledby', tabPanel.id);
 
       if (tabPanel !== this.activeTab) {
         tabPanel.setAttribute('aria-hidden', true);
