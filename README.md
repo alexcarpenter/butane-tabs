@@ -31,9 +31,9 @@ Below is the minimum required elements and attributes needed. An additional styl
 ```html
 <div data-butane-tabs>
   <ul aria-label="Code documentation example" data-butane-tablist>
-    <li data-butane-tab="tab-1">HTML</li>
-    <li data-butane-tab="tab-2">CSS</li>
-    <li data-butane-tab="tab-3">JS</li>
+    <li data-butane-tab="tab-html">HTML</li>
+    <li data-butane-tab="tab-css">CSS</li>
+    <li data-butane-tab="tab-js">JS</li>
   </ul>
 
   <section id="tab-html" data-butane-tabpanel>HTML Content</section>
