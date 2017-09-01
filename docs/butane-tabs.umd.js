@@ -10,7 +10,9 @@ var keyCodes = {
   upArrow: 38,
   rightArrow: 39,
   downArrow: 40,
-  leftArrow: 37
+  leftArrow: 37,
+  home: 36,
+  end: 35
 };
 
 var classCallCheck = function (instance, Constructor) {
@@ -38,10 +40,10 @@ var createClass = function () {
 }();
 
 var ButaneTabs = function () {
-  function ButaneTabs(selector) {
+  function ButaneTabs(element) {
     classCallCheck(this, ButaneTabs);
 
-    this.tabContainer = selector;
+    this.tabContainer = element;
     this.tabList = this.tabContainer.querySelector('[data-butane-tablist]');
     this.tabs = this.tabContainer.querySelectorAll('[data-butane-tab]');
     this.tabPanels = this.tabContainer.querySelectorAll('[data-butane-tabpanel]');
@@ -224,6 +226,22 @@ var ButaneTabs = function () {
             previousTab.classList.add('is-active');
             this.setActivePanel(previousTab);
           }
+          break;
+        case keyCodes.home:
+          this.deactivateTabs();
+          this.firstTab.focus();
+          this.firstTab.setAttribute('tabindex', 0);
+          this.firstTab.setAttribute('aria-selected', true);
+          this.firstTab.classList.add('is-active');
+          this.setActivePanel(this.firstTab);
+          break;
+        case keyCodes.end:
+          this.deactivateTabs();
+          this.lastTab.focus();
+          this.lastTab.setAttribute('tabindex', 0);
+          this.lastTab.setAttribute('aria-selected', true);
+          this.lastTab.classList.add('is-active');
+          this.setActivePanel(this.lastTab);
           break;
       }
     }

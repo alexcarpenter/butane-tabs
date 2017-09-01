@@ -4,12 +4,14 @@ const keyCodes = {
   upArrow: 38,
   rightArrow: 39,
   downArrow: 40,
-  leftArrow: 37
+  leftArrow: 37,
+  home: 36,
+  end: 35
 };
 
 class ButaneTabs {
-  constructor(selector) {
-    this.tabContainer = selector;
+  constructor(element) {
+    this.tabContainer = element;
     this.tabList = this.tabContainer.querySelector('[data-butane-tablist]');
     this.tabs = this.tabContainer.querySelectorAll('[data-butane-tab]');
     this.tabPanels = this.tabContainer.querySelectorAll('[data-butane-tabpanel]');
@@ -174,6 +176,22 @@ class ButaneTabs {
           previousTab.classList.add('is-active');
           this.setActivePanel(previousTab);
         }
+        break
+      case keyCodes.home:
+        this.deactivateTabs();
+        this.firstTab.focus();
+        this.firstTab.setAttribute('tabindex', 0);
+        this.firstTab.setAttribute('aria-selected', true);
+        this.firstTab.classList.add('is-active');
+        this.setActivePanel(this.firstTab);
+        break
+      case keyCodes.end:
+        this.deactivateTabs();
+        this.lastTab.focus();
+        this.lastTab.setAttribute('tabindex', 0);
+        this.lastTab.setAttribute('aria-selected', true);
+        this.lastTab.classList.add('is-active');
+        this.setActivePanel(this.lastTab);
         break
     }
   }

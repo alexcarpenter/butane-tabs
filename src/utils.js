@@ -6,5 +6,7 @@ export const keyCodes = {
   upArrow: 38,
   rightArrow: 39,
   downArrow: 40,
-  leftArrow: 37
+  leftArrow: 37,
+  home: 36,
+  end: 35
 }

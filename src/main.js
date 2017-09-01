@@ -170,6 +170,22 @@ class ButaneTabs {
           this.setActivePanel(previousTab)
         }
         break
+      case keyCodes.home:
+        this.deactivateTabs()
+        this.firstTab.focus()
+        this.firstTab.setAttribute('tabindex', 0)
+        this.firstTab.setAttribute('aria-selected', true)
+        this.firstTab.classList.add('is-active')
+        this.setActivePanel(this.firstTab)
+        break
+      case keyCodes.end:
+        this.deactivateTabs()
+        this.lastTab.focus()
+        this.lastTab.setAttribute('tabindex', 0)
+        this.lastTab.setAttribute('aria-selected', true)
+        this.lastTab.classList.add('is-active')
+        this.setActivePanel(this.lastTab)
+        break
     }
   }
 }
