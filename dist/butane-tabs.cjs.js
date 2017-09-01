@@ -90,7 +90,6 @@ class MightyTabs {
     const previousTab = target.previousElementSibling;
 
     switch (which) {
-      case keyCodes.downArrow:
       case keyCodes.rightArrow:
         target.setAttribute('tabindex', -1);
         target.setAttribute('aria-selected', false);
@@ -110,7 +109,6 @@ class MightyTabs {
           this.setActivePanel(nextTab);
         }
         break
-      case keyCodes.upArrow:
       case keyCodes.leftArrow:
         target.setAttribute('tabindex', -1);
         target.setAttribute('aria-selected', false);
