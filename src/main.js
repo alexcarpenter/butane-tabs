@@ -3,8 +3,8 @@
 import { keyCodes } from './utils'
 
 class ButaneTabs {
-  constructor(selector) {
-    this.tabContainer = selector
+  constructor(element) {
+    this.tabContainer = element
     this.tabList = this.tabContainer.querySelector('[data-butane-tablist]')
     this.tabs = this.tabContainer.querySelectorAll('[data-butane-tab]')
     this.tabPanels = this.tabContainer.querySelectorAll('[data-butane-tabpanel]')
