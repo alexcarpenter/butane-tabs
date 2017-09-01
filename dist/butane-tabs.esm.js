@@ -44,6 +44,7 @@ class ButaneTabs {
       this.activeTab.classList.add('is-active');
       tab.tabIndex = isActiveTab ? 0 : -1;
       tab.setAttribute('aria-selected', isActiveTab ? 'true' : 'false');
+      tab.setAttribute('role', 'tab');
       tab.setAttribute('aria-controls', tab.getAttribute('data-butane-tab'));
     });
 
