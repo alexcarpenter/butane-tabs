@@ -34,19 +34,19 @@ allTabs.forEach(tab => {
 
 ## Expected DOM structure
 
+Below is the minimum required elements and attributes needed. An additional styling layer is also required to show/hide tab panels via the `aria-hidden` attribute. There are some basic example styles within `docs/styles.css` for reference.
+
 ```html
-<div class="c-tabs" data-butane-tabs>
-  <ul class="c-tabs__list" data-butane-tablist>
-    <li class="c-tabs__list-item" data-butane-tab="tab-1"><span>Tab 1</span></li>
-    <li class="c-tabs__list-item" data-butane-tab="tab-2"><span>Tab 2</span></li>
-    <li class="c-tabs__list-item" data-butane-tab="tab-3"><span>Tab 3</span></li>
-    <li class="c-tabs__list-item" data-butane-tab="tab-4"><span>Tab 4</span></li>
+<div data-butane-tabs>
+  <ul aria-label="Code documentation example" data-butane-tablist>
+    <li data-butane-tab="tab-1">HTML</li>
+    <li data-butane-tab="tab-2">CSS</li>
+    <li data-butane-tab="tab-3">JS</li>
   </ul>
 
-  <section class="c-tabs__panel" id="tab-1" data-butane-tabpanel><h2>Tab 1 Content</h2></section>
-  <section class="c-tabs__panel" id="tab-2" data-butane-tabpanel><h2>Tab 2 Content</h2></section>
-  <section class="c-tabs__panel" id="tab-3" data-butane-tabpanel><h2>Tab 3 Content</h2></section>
-  <section class="c-tabs__panel" id="tab-4" data-butane-tabpanel><h2>Tab 4 Content</h2></section>
+  <section id="tab-html" data-butane-tabpanel>HTML Content</section>
+  <section id="tab-css" data-butane-tabpanel>CSS Content</section>
+  <section id="tab-js" data-butane-tabpanel>JS Content</section>
 </div>
 ```
 
