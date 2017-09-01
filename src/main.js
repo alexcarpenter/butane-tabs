@@ -2,7 +2,7 @@
 
 import { focusableElements, keyCodes } from './utils'
 
-class MightyTabs {
+class ButaneTabs {
   constructor(selector) {
     this.tabContainer = document.querySelector(selector)
     this.tabList = this.tabContainer.querySelector('[data-butane-tablist]')

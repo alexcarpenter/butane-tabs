@@ -37,9 +37,9 @@ var createClass = function () {
   };
 }();
 
-var MightyTabs = function () {
-  function MightyTabs(selector) {
-    classCallCheck(this, MightyTabs);
+var ButaneTabs = function () {
+  function ButaneTabs(selector) {
+    classCallCheck(this, ButaneTabs);
 
     this.tabContainer = document.querySelector(selector);
     this.tabList = this.tabContainer.querySelector('[data-butane-tablist]');
@@ -70,7 +70,7 @@ var MightyTabs = function () {
     this.init();
   }
 
-  createClass(MightyTabs, [{
+  createClass(ButaneTabs, [{
     key: 'init',
     value: function init() {
       var _this = this;
@@ -168,7 +168,7 @@ var MightyTabs = function () {
       }
     }
   }]);
-  return MightyTabs;
+  return ButaneTabs;
 }();
 
 return ButaneTabs;
