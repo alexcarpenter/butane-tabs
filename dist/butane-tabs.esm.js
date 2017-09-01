@@ -30,6 +30,7 @@ class ButaneTabs {
     }
 
     this.getPanel = this.getPanel.bind(this);
+    this.deactivateTabs = this.deactivateTabs.bind(this);
     this.setActivePanel = this.setActivePanel.bind(this);
     this.bindKeyPress = this.bindKeyPress.bind(this);
 
@@ -46,6 +47,12 @@ class ButaneTabs {
       tab.setAttribute('aria-selected', isActiveTab ? 'true' : 'false');
       tab.setAttribute('role', 'tab');
       tab.setAttribute('aria-controls', tab.getAttribute('data-butane-tab'));
+
+      tab.addEventListener('click', () => {
+        this.deactivateTabs();
+        tab.classList.add('is-active');
+        this.setActivePanel(tab);
+      });
     });
 
     this.tabPanels.forEach(tabPanel => {
@@ -60,6 +67,14 @@ class ButaneTabs {
     this.setActivePanel(this.activeTab);
 
     this.tabContainer.addEventListener('keydown', this.bindKeyPress);
+  }
+
+  deactivateTabs () {
+    this.tabs.forEach(tab => {
+      tab.classList.remove('is-active');
+      tab.setAttribute('tabindex', -1);
+      tab.setAttribute('aria-selected', false);
+    });
   }
 
   getPanel (x) {

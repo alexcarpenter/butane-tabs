@@ -62,6 +62,7 @@ var ButaneTabs = function () {
     }
 
     this.getPanel = this.getPanel.bind(this);
+    this.deactivateTabs = this.deactivateTabs.bind(this);
     this.setActivePanel = this.setActivePanel.bind(this);
     this.bindKeyPress = this.bindKeyPress.bind(this);
 
@@ -82,6 +83,12 @@ var ButaneTabs = function () {
         tab.setAttribute('aria-selected', isActiveTab ? 'true' : 'false');
         tab.setAttribute('role', 'tab');
         tab.setAttribute('aria-controls', tab.getAttribute('data-butane-tab'));
+
+        tab.addEventListener('click', function () {
+          _this.deactivateTabs();
+          tab.classList.add('is-active');
+          _this.setActivePanel(tab);
+        });
       });
 
       this.tabPanels.forEach(function (tabPanel) {
@@ -96,6 +103,15 @@ var ButaneTabs = function () {
       this.setActivePanel(this.activeTab);
 
       this.tabContainer.addEventListener('keydown', this.bindKeyPress);
+    }
+  }, {
+    key: 'deactivateTabs',
+    value: function deactivateTabs() {
+      this.tabs.forEach(function (tab) {
+        tab.classList.remove('is-active');
+        tab.setAttribute('tabindex', -1);
+        tab.setAttribute('aria-selected', false);
+      });
     }
   }, {
     key: 'getPanel',
