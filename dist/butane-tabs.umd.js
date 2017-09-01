@@ -88,7 +88,7 @@ var ButaneTabs = function () {
 
       this.tabList.setAttribute('role', 'tablist');
 
-      this.tabs.forEach(function (tab) {
+      Array.from(this.tabs).forEach(function (tab) {
         var isActiveTab = tab === _this.activeTab;
         _this.activeTab.classList.add('is-active');
         tab.tabIndex = isActiveTab ? 0 : -1;
@@ -106,7 +106,7 @@ var ButaneTabs = function () {
         });
       });
 
-      this.tabPanels.forEach(function (tabPanel) {
+      Array.from(this.tabPanels).forEach(function (tabPanel) {
         var tabPanelId = tabPanel.getAttribute('data-butane-tabpanel');
         tabPanel.setAttribute('role', 'tabpanel');
         tabPanel.setAttribute('id', tabPanelId);
@@ -131,7 +131,7 @@ var ButaneTabs = function () {
   }, {
     key: 'deactivateTabs',
     value: function deactivateTabs() {
-      this.tabs.forEach(function (tab) {
+      Array.from(this.tabs).forEach(function (tab) {
         tab.classList.remove('is-active');
         tab.setAttribute('tabindex', -1);
         tab.setAttribute('aria-selected', false);
@@ -164,7 +164,7 @@ var ButaneTabs = function () {
     value: function setActivePanel(x) {
       var y = this.getPanel(x);
 
-      this.tabPanels.forEach(function (tabPanel) {
+      Array.from(this.tabPanels).forEach(function (tabPanel) {
         if (tabPanel !== y) {
           tabPanel.setAttribute('aria-hidden', true);
         }
@@ -253,7 +253,7 @@ var ButaneTabs = function () {
 
 var init = function init() {
   var butaneTabs = document.querySelectorAll('[data-butane-tabs]');
-  butaneTabs.forEach(function (tab) {
+  Array.from(butaneTabs).forEach(function (tab) {
     new ButaneTabs(tab);
   });
 };

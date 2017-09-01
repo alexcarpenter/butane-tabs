@@ -50,7 +50,7 @@ class ButaneTabs {
   setupTabs () {
     this.tabList.setAttribute('role', 'tablist');
 
-    this.tabs.forEach(tab => {
+    Array.from(this.tabs).forEach(tab => {
       const isActiveTab = tab === this.activeTab;
       this.activeTab.classList.add('is-active');
       tab.tabIndex = isActiveTab ? 0 : -1;
@@ -68,7 +68,7 @@ class ButaneTabs {
       });
     });
 
-    this.tabPanels.forEach(tabPanel => {
+    Array.from(this.tabPanels).forEach(tabPanel => {
       const tabPanelId = tabPanel.getAttribute('data-butane-tabpanel');
       tabPanel.setAttribute('role', 'tabpanel');
       tabPanel.setAttribute('id', tabPanelId);
@@ -90,7 +90,7 @@ class ButaneTabs {
    * @return {null}
    */
   deactivateTabs () {
-    this.tabs.forEach(tab => {
+    Array.from(this.tabs).forEach(tab => {
       tab.classList.remove('is-active');
       tab.setAttribute('tabindex', -1);
       tab.setAttribute('aria-selected', false);
@@ -117,7 +117,7 @@ class ButaneTabs {
   setActivePanel (x) {
     const y = this.getPanel(x);
 
-    this.tabPanels.forEach(tabPanel => {
+    Array.from(this.tabPanels).forEach(tabPanel => {
       if (tabPanel !== y) {
         tabPanel.setAttribute('aria-hidden', true);
       }
@@ -201,7 +201,7 @@ class ButaneTabs {
 
 const init = () => {
   const butaneTabs = document.querySelectorAll('[data-butane-tabs]');
-  butaneTabs.forEach(tab => {
+  Array.from(butaneTabs).forEach(tab => {
     new ButaneTabs(tab);
   });
 };
