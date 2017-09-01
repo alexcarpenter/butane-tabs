@@ -1,7 +1,7 @@
 {
   "name": "butane-tabs",
   "version": "1.0.0-alpha.1",
-  "description": "An accessible tab interface",
+  "description": "Accessible dialog JS library.",
   "main": "dist/butane-tabs.cjs.js",
   "module": "dist/butane-tabs.esm.js",
   "browser": "dist/butane-tabs.umd.js",
