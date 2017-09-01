@@ -125,4 +125,4 @@ class MightyTabs {
   }
 }
 
-export default MightyTabs
+export default ButaneTabs

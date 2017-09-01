@@ -171,6 +171,6 @@ var MightyTabs = function () {
   return MightyTabs;
 }();
 
-return MightyTabs;
+return ButaneTabs;
 
 })));
