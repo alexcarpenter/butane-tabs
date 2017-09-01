@@ -9,7 +9,7 @@ const keyCodes = {
 
 class ButaneTabs {
   constructor(selector) {
-    this.tabContainer = document.querySelector(selector);
+    this.tabContainer = selector;
     this.tabList = this.tabContainer.querySelector('[data-butane-tablist]');
     this.tabs = this.tabContainer.querySelectorAll('[data-butane-tab]');
     this.tabPanels = this.tabContainer.querySelectorAll('[data-butane-tabpanel]');
@@ -29,6 +29,9 @@ class ButaneTabs {
       throw new Error('No tab panels found')
     }
 
+    // Prebind the functions that will be bound in
+    // addEventListener and removeEventListener to
+    // avoid losing references
     this.getPanel = this.getPanel.bind(this);
     this.deactivateTabs = this.deactivateTabs.bind(this);
     this.setActivePanel = this.setActivePanel.bind(this);
@@ -37,6 +40,11 @@ class ButaneTabs {
     this.init();
   }
 
+  /**
+   * Initialize tab setup
+   *
+   * @return {null}
+   */
   init () {
     this.tabList.setAttribute('role', 'tablist');
 
@@ -48,6 +56,7 @@ class ButaneTabs {
       tab.setAttribute('role', 'tab');
       tab.setAttribute('aria-controls', tab.getAttribute('data-butane-tab'));
 
+      // Start watching for clicks on tabs
       tab.addEventListener('click', () => {
         this.deactivateTabs();
         tab.classList.add('is-active');
@@ -71,6 +80,11 @@ class ButaneTabs {
     this.tabContainer.addEventListener('keydown', this.bindKeyPress);
   }
 
+  /**
+   * Deactivate all tabs
+   *
+   * @return {null}
+   */
   deactivateTabs () {
     this.tabs.forEach(tab => {
       tab.classList.remove('is-active');
@@ -79,11 +93,23 @@ class ButaneTabs {
     });
   }
 
+  /**
+   * Get a tab panel from an ID
+   *
+   * @param {element}
+   * @return {}
+   */
   getPanel (x) {
     const panelId = x.getAttribute('aria-controls');
     return this.tabContainer.querySelector(`#${panelId}`)
   }
 
+  /**
+   * Set the active tab panel
+   *
+   * @param {element}
+   * @return {null}
+   */
   setActivePanel (x) {
     const y = this.getPanel(x);
 
@@ -96,6 +122,12 @@ class ButaneTabs {
     y.setAttribute('aria-hidden', false);
   }
 
+  /**
+   * Watch for keyboard events
+   *
+   * @param {Object} e The event object
+   * @return {null}
+   */
   bindKeyPress (e) {
     const which = e.which;
     const target = e.target;

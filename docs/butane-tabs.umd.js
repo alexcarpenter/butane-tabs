@@ -41,7 +41,7 @@ var ButaneTabs = function () {
   function ButaneTabs(selector) {
     classCallCheck(this, ButaneTabs);
 
-    this.tabContainer = document.querySelector(selector);
+    this.tabContainer = selector;
     this.tabList = this.tabContainer.querySelector('[data-butane-tablist]');
     this.tabs = this.tabContainer.querySelectorAll('[data-butane-tab]');
     this.tabPanels = this.tabContainer.querySelectorAll('[data-butane-tabpanel]');
@@ -61,6 +61,9 @@ var ButaneTabs = function () {
       throw new Error('No tab panels found');
     }
 
+    // Prebind the functions that will be bound in
+    // addEventListener and removeEventListener to
+    // avoid losing references
     this.getPanel = this.getPanel.bind(this);
     this.deactivateTabs = this.deactivateTabs.bind(this);
     this.setActivePanel = this.setActivePanel.bind(this);
@@ -68,6 +71,13 @@ var ButaneTabs = function () {
 
     this.init();
   }
+
+  /**
+   * Initialize tab setup
+   *
+   * @return {null}
+   */
+
 
   createClass(ButaneTabs, [{
     key: 'init',
@@ -84,6 +94,7 @@ var ButaneTabs = function () {
         tab.setAttribute('role', 'tab');
         tab.setAttribute('aria-controls', tab.getAttribute('data-butane-tab'));
 
+        // Start watching for clicks on tabs
         tab.addEventListener('click', function () {
           _this.deactivateTabs();
           tab.classList.add('is-active');
@@ -106,6 +117,13 @@ var ButaneTabs = function () {
 
       this.tabContainer.addEventListener('keydown', this.bindKeyPress);
     }
+
+    /**
+     * Deactivate all tabs
+     *
+     * @return {null}
+     */
+
   }, {
     key: 'deactivateTabs',
     value: function deactivateTabs() {
@@ -115,12 +133,28 @@ var ButaneTabs = function () {
         tab.setAttribute('aria-selected', false);
       });
     }
+
+    /**
+     * Get a tab panel from an ID
+     *
+     * @param {element}
+     * @return {}
+     */
+
   }, {
     key: 'getPanel',
     value: function getPanel(x) {
       var panelId = x.getAttribute('aria-controls');
       return this.tabContainer.querySelector('#' + panelId);
     }
+
+    /**
+     * Set the active tab panel
+     *
+     * @param {element}
+     * @return {null}
+     */
+
   }, {
     key: 'setActivePanel',
     value: function setActivePanel(x) {
@@ -134,6 +168,14 @@ var ButaneTabs = function () {
 
       y.setAttribute('aria-hidden', false);
     }
+
+    /**
+     * Watch for keyboard events
+     *
+     * @param {Object} e The event object
+     * @return {null}
+     */
+
   }, {
     key: 'bindKeyPress',
     value: function bindKeyPress(e) {
