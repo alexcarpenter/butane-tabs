@@ -16,6 +16,7 @@ Then `import` it into the file where you'll use it.
 
 ```es6
 import ButaneTabs from 'butane-tabs'
+```
 
 ## License
 
