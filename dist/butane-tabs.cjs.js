@@ -41,7 +41,7 @@ class ButaneTabs {
     this.setActivePanel = this.setActivePanel.bind(this);
     this.bindKeyPress = this.bindKeyPress.bind(this);
 
-    this.init();
+    this.setupTabs();
   }
 
   /**
@@ -49,7 +49,7 @@ class ButaneTabs {
    *
    * @return {null}
    */
-  init () {
+  setupTabs () {
     this.tabList.setAttribute('role', 'tablist');
 
     this.tabs.forEach(tab => {
@@ -71,8 +71,10 @@ class ButaneTabs {
     });
 
     this.tabPanels.forEach(tabPanel => {
+      const tabPanelId = tabPanel.getAttribute('data-butane-tabpanel');
       tabPanel.setAttribute('role', 'tabpanel');
-      tabPanel.setAttribute('aria-labelledby', tabPanel.id);
+      tabPanel.setAttribute('id', tabPanelId);
+      tabPanel.setAttribute('aria-labelledby', tabPanelId);
 
       if (tabPanel !== this.activeTab) {
         tabPanel.setAttribute('aria-hidden', true);

@@ -71,7 +71,7 @@ var ButaneTabs = function () {
     this.setActivePanel = this.setActivePanel.bind(this);
     this.bindKeyPress = this.bindKeyPress.bind(this);
 
-    this.init();
+    this.setupTabs();
   }
 
   /**
@@ -82,8 +82,8 @@ var ButaneTabs = function () {
 
 
   createClass(ButaneTabs, [{
-    key: 'init',
-    value: function init() {
+    key: 'setupTabs',
+    value: function setupTabs() {
       var _this = this;
 
       this.tabList.setAttribute('role', 'tablist');
@@ -107,8 +107,10 @@ var ButaneTabs = function () {
       });
 
       this.tabPanels.forEach(function (tabPanel) {
+        var tabPanelId = tabPanel.getAttribute('data-butane-tabpanel');
         tabPanel.setAttribute('role', 'tabpanel');
-        tabPanel.setAttribute('aria-labelledby', tabPanel.id);
+        tabPanel.setAttribute('id', tabPanelId);
+        tabPanel.setAttribute('aria-labelledby', tabPanelId);
 
         if (tabPanel !== _this.activeTab) {
           tabPanel.setAttribute('aria-hidden', true);

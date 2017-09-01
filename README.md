@@ -36,9 +36,9 @@ Below is the minimum required elements and attributes needed. An additional styl
     <li data-butane-tab="tab-js">JS</li>
   </ul>
 
-  <section id="tab-html" data-butane-tabpanel>HTML Content</section>
-  <section id="tab-css" data-butane-tabpanel>CSS Content</section>
-  <section id="tab-js" data-butane-tabpanel>JS Content</section>
+  <section data-butane-tabpanel="tab-html">HTML Content</section>
+  <section data-butane-tabpanel="tab-css">CSS Content</section>
+  <section data-butane-tabpanel="tab-js">JS Content</section>
 </div>
 ```
 

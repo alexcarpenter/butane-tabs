@@ -1,6 +1,6 @@
 {
   "name": "butane-tabs",
-  "version": "1.0.0-alpha.4",
+  "version": "1.0.0-alpha.5",
   "description": "Accessible dialog JS library.",
   "main": "dist/butane-tabs.cjs.js",
   "module": "dist/butane-tabs.esm.js",
