@@ -15,6 +15,7 @@ class ButaneTabs {
   constructor(element) {
     this.tabContainer = element;
     this.tabList = this.tabContainer.querySelector('[data-butane-tablist]');
+    this.tabListLabel = this.tabList.getAttribute('aria-label');
     this.tabs = this.tabContainer.querySelectorAll('[data-butane-tab]');
     this.tabPanels = this.tabContainer.querySelectorAll('[data-butane-tabpanel]');
     this.firstTab = this.tabs[0];
@@ -23,6 +24,10 @@ class ButaneTabs {
 
     if (!this.tabList) {
       throw new Error('No tablist found')
+    }
+
+    if (!this.tabListLabel) {
+      console.warn('Provide a label that describes the purpose of the set of tabs');
     }
 
     if (!this.tabs) {
@@ -203,6 +208,7 @@ class ButaneTabs {
 
 const init = () => {
   const butaneTabs = document.querySelectorAll('[data-butane-tabs]');
+
   Array.from(butaneTabs).forEach(tab => {
     new ButaneTabs(tab);
   });

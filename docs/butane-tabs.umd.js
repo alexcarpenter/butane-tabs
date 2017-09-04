@@ -45,6 +45,7 @@ var ButaneTabs = function () {
 
     this.tabContainer = element;
     this.tabList = this.tabContainer.querySelector('[data-butane-tablist]');
+    this.tabListLabel = this.tabList.getAttribute('aria-label');
     this.tabs = this.tabContainer.querySelectorAll('[data-butane-tab]');
     this.tabPanels = this.tabContainer.querySelectorAll('[data-butane-tabpanel]');
     this.firstTab = this.tabs[0];
@@ -53,6 +54,10 @@ var ButaneTabs = function () {
 
     if (!this.tabList) {
       throw new Error('No tablist found');
+    }
+
+    if (!this.tabListLabel) {
+      console.warn('Provide a label that describes the purpose of the set of tabs');
     }
 
     if (!this.tabs) {
@@ -253,6 +258,7 @@ var ButaneTabs = function () {
 
 var init = function init() {
   var butaneTabs = document.querySelectorAll('[data-butane-tabs]');
+
   Array.from(butaneTabs).forEach(function (tab) {
     new ButaneTabs(tab);
   });
